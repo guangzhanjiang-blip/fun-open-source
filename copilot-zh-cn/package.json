@@ -1,0 +1,33 @@
+{
+  "name": "copilot-zh-cn",
+  "displayName": "GitHub Copilot 简体中文语言包",
+  "description": "GitHub Copilot / Copilot Chat 界面简体中文翻译。补完官方中文语言包未覆盖的 Copilot 界面字符串（命令、聊天面板、通知、报错等）。",
+  "version": "0.48.1",
+  "publisher": "guangzhanjiang-blip",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Language Packs"
+  ],
+  "contributes": {
+    "localizations": [
+      {
+        "languageId": "zh-cn",
+        "languageName": "Chinese (Simplified)",
+        "localizedLanguageName": "中文(简体)",
+        "translations": [
+          {
+            "id": "github.copilot",
+            "path": "./translations/extensions/github.copilot.i18n.json"
+          },
+          {
+            "id": "github.copilot-chat",
+            "path": "./translations/extensions/github.copilot-chat.i18n.json"
+          }
+        ]
+      }
+    ]
+  }
+}

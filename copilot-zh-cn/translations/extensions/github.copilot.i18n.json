@@ -1,0 +1,21 @@
+{
+  "github.copilot.toggleStatusMenu": "打开状态菜单",
+  "github.copilot.signIn": "登录",
+  "github.copilot.acceptCursorPanelSolution": "接受光标处的面板建议",
+  "github.copilot.previousPanelSolution": "转到上一条面板建议",
+  "github.copilot.nextPanelSolution": "转到下一条面板建议",
+  "github.copilot.generate": "打开补全面板",
+  "github.copilot.generateComparison": "打开比较面板",
+  "github.copilot.acceptCursorComparisonPanelSolution": "接受光标处的比较面板建议",
+  "github.copilot.previousComparisonPanelSolution": "转到上一条比较面板建议",
+  "github.copilot.nextComparisonPanelSolution": "转到下一条比较面板建议",
+  "github.copilot.completions.disable": "禁用补全",
+  "github.copilot.completions.enable": "启用补全",
+  "github.copilot.completions.toggle": "切换（启用/禁用）补全",
+  "github.copilot.sendFeedback": "发送反馈",
+  "github.copilot.collectDiagnostics": "收集诊断信息",
+  "github.copilot.openLogs": "打开日志",
+  "github.copilot.openModelPicker": "更改补全模型",
+  "github.copilot.sendCompletionFeedback": "发送 Copilot 补全反馈",
+  "github-copilot-completions-debugger-view.refresh": "刷新"
+}
