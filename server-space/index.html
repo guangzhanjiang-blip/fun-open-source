@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服务器空间</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #0f1115; color: #e8e8e8; min-height: 100vh; }
+  .header { padding: 28px 24px 16px; border-bottom: 1px solid #222; }
+  .header h1 { font-size: 26px; }
+  .header p { color: #888; margin-top: 6px; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; padding: 24px; max-width: 1100px; margin: 0 auto; }
+  .card { background: #171a21; border: 1px solid #262a33; border-radius: 14px; padding: 22px; }
+  .card h2 { font-size: 18px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .badge { font-size: 12px; padding: 3px 9px; border-radius: 20px; font-weight: 600; }
+  .badge-green { background: #12351f; color: #4ade80; }
+  .badge-blue { background: #12294d; color: #60a5fa; }
+  .card .sub { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #22262f; font-size: 14px; }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: #999; }
+  .row .v { font-weight: 600; text-align: right; }
+  .row .v.warn { color: #fbbf24; }
+  .row .v.good { color: #4ade80; }
+  .section { padding: 0 24px 24px; max-width: 1100px; margin: 0 auto; }
+  .section h2 { font-size: 18px; margin-bottom: 12px; }
+  .compare { width: 100%; border-collapse: collapse; background: #171a21; border-radius: 14px; overflow: hidden; }
+  .compare th, .compare td { padding: 12px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid #22262f; }
+  .compare th { background: #1e222b; color: #aaa; font-weight: 600; }
+  .compare tr:last-child td { border-bottom: none; }
+  .compare td:first-child { color: #999; }
+  .note { background: #1c1a10; border: 1px solid #3a3215; border-radius: 12px; padding: 16px 18px; font-size: 14px; line-height: 1.7; color: #e5d9a8; }
+  .note b { color: #fbbf24; }
+  .footer { text-align: center; color: #555; font-size: 12px; padding: 20px; }
+  code { background: #262a33; padding: 2px 7px; border-radius: 6px; font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>🖥️ 服务器空间</h1>
+    <p>我的两台服务器：Muse 虚拟机 + 阿里云 ECS · 2026-11-16 搭建</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>🤖 Muse 虚拟机 <span class="badge badge-blue">Linux</span></h2>
+      <p class="sub">我的工作台 · 跟你对话、干活都在这台上</p>
+      <div class="row"><span class="k">系统</span><span class="v">Linux x86_64 · KVM</span></div>
+      <div class="row"><span class="k">CPU</span><span class="v">AMD EPYC 9D25 · 共享 1.5 核</span></div>
+      <div class="row"><span class="k">内存</span><span class="v">6 GiB（共享）</span></div>
+      <div class="row"><span class="k">硬盘</span><span class="v good">150 GB</span></div>
+      <div class="row"><span class="k">交换分区</span><span class="v">1.0 GiB</span></div>
+      <div class="row"><span class="k">用途</span><span class="v">聊天、搜索、写文件、跑任务</span></div>
+    </div>
+
+    <div class="card">
+      <h2>☁️ 阿里云 ECS <span class="badge badge-green">运行中</span></h2>
+      <p class="sub">华东1（杭州）· 免费试用 · 实例 i-bp1c34hnxape9c39rcu5</p>
+      <div class="row"><span class="k">公网 IP</span><span class="v">47.118.19.203</span></div>
+      <div class="row"><span class="k">系统</span><span class="v">Windows Server 2022 中文版</span></div>
+      <div class="row"><span class="k">配置</span><span class="v good">4 核 vCPU / 8 GiB 内存</span></div>
+      <div class="row"><span class="k">硬盘</span><span class="v">40 GiB ESSD Entry 云盘</span></div>
+      <div class="row"><span class="k">带宽</span><span class="v">100 Mbps（峰值，按流量）</span></div>
+      <div class="row"><span class="k">远程登录</span><span class="v">administrator · RDP 3389</span></div>
+      <div class="row"><span class="k">免费流量/月</span><span class="v">国内 20 GB · 国外 200 GB</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>⚖️ 两台对比</h2>
+    <table class="compare">
+      <tr><th>项目</th><th>Muse 虚拟机</th><th>阿里云 ECS</th></tr>
+      <tr><td>CPU</td><td>1.5 核（共享）</td><td><b>4 核</b> ✓ 更强</td></tr>
+      <tr><td>内存</td><td>6 GiB</td><td><b>8 GiB</b> ✓ 更大</td></tr>
+      <tr><td>硬盘</td><td><b>150 GB</b> ✓ 更大</td><td>40 GiB</td></tr>
+      <tr><td>系统</td><td>Linux</td><td>Windows Server 2022</td></tr>
+      <tr><td>费用</td><td>包含在 Muse 里</td><td>试用金 300 元</td></tr>
+      <tr><td>适合干嘛</td><td>聊天、搜索、写东西</td><td>跑 Windows 软件、挂机、建站</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>💰 费用提醒</h2>
+    <div class="note">
+      阿里云试用金 <b>300 元</b>，每小时扣 <b>0.479 元</b>，一直开着约 <b>26 天</b>用完。
+      不用的时候去控制台点「停止」，停机就不扣钱；每天用几小时的话，300 元基本能撑满整个试用期。
+      试用期到 <b>2027 年 2 月 16 日</b>结束，到期不续费实例会被释放，提前备份数据。
+      额度用完前记得停机或释放，不然超出部分要自己付钱。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔐 怎么连阿里云那台</h2>
+    <div class="note" style="background:#171a21;border-color:#262a33;color:#ddd;">
+      手机：下 <b>Windows App Mobile</b>（微软官方，以前叫远程桌面）→ 点「电脑」→ 填 <code>47.118.19.203</code> → 用户名 <code>administrator</code> → 密码就是你设的那个。<br>
+      电脑：按 Win+R 输入 <code>mstsc</code> → 填 <code>47.118.19.203</code> → 同样用户名和密码。第一次提示证书不受信任点继续就行。<br>
+      Windows Server 默认允许 2 个人同时连，我连着你也能连。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛡️ 已领的免费权益</h2>
+    <div class="note" style="background:#171a21;border-color:#262a33;color:#ddd;">
+      ✅ ECS 安全防护：主机全面防护已开，云备份 100G 免费额度，每天 1 次免费漏洞修复（安全页还有 1 个漏洞待修）。<br>
+      ✅ ESA 免费版：0 元 1 个月，到 2026 年 12 月 17 日，流量不限量，等搭网站了再绑定。
+    </div>
+  </div>
+
+  <div class="footer">服务器空间 · 本页面就部署在这台阿里云 ECS 上</div>
+</body>
+</html>
