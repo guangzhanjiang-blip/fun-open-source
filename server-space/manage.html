@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>服务器管控中心</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+  h1 { font-size: 26px; color: #f8fafc; }
+  h1 span { color: #38bdf8; }
+  .sub { color: #94a3b8; font-size: 13px; margin-top: 4px; }
+  .badge { background: #065f46; color: #a7f3d0; padding: 4px 12px; border-radius: 999px; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; }
+  .card h2 { font-size: 18px; margin-bottom: 4px; color: #f8fafc; }
+  .card .tag { font-size: 12px; color: #94a3b8; margin-bottom: 14px; }
+  .row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #334155; font-size: 14px; }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: #94a3b8; }
+  .row .v { color: #e2e8f0; text-align: right; }
+  .row .v.green { color: #4ade80; }
+  .row .v.amber { color: #fbbf24; }
+  .row .v.red { color: #f87171; }
+  .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .btn { display: inline-block; background: #0284c7; color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 13px; text-decoration: none; }
+  .btn.ghost { background: #334155; }
+  .btn.warn { background: #b45309; }
+  .note { background: #451a03; border: 1px solid #92400e; color: #fde68a; border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+  .note b { color: #fbbf24; }
+  .section-title { font-size: 16px; color: #f8fafc; margin: 22px 0 12px; }
+  .checklist { list-style: none; }
+  .checklist li { padding: 8px 0; border-bottom: 1px solid #334155; font-size: 14px; display: flex; justify-content: space-between; }
+  .checklist li:last-child { border-bottom: none; }
+  .ok { color: #4ade80; }
+  .todo { color: #fbbf24; }
+  footer { color: #64748b; font-size: 12px; text-align: center; margin-top: 28px; }
+  code { background: #0f172a; padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>🖥️ 服务器<span>管控中心</span></h1>
+      <div class="sub">两台服务器的状态、连接方式、费用和安全，一页看完</div>
+    </div>
+    <div class="badge">● 2 台在线</div>
+  </header>
+
+  <div class="note">
+    <b>⚠️ 先看这个：</b>阿里云那台远程桌面密码比较简单（8 位，和手机号有关联），端口直接暴露在网上，有被扫密码的风险。建议尽快改一个复杂密码，并把之前安全检查里那 1 个待修漏洞修掉。
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>阿里云 ECS</h2>
+      <div class="tag">主力服务器 · 试用金在跑</div>
+      <div class="row"><span class="k">实例 ID</span><span class="v">i-bp1c34hnxape9c39rcu5</span></div>
+      <div class="row"><span class="k">公网 IP</span><span class="v">47.118.19.203</span></div>
+      <div class="row"><span class="k">地域</span><span class="v">华东1（杭州）</span></div>
+      <div class="row"><span class="k">配置</span><span class="v">4核 / 8G / 40G 系统盘</span></div>
+      <div class="row"><span class="k">系统</span><span class="v">Windows Server 2022 中文版</span></div>
+      <div class="row"><span class="k">状态</span><span class="v green">● 运行中</span></div>
+      <div class="row"><span class="k">试用金</span><span class="v">300 元（剩约 299.97 元）</span></div>
+      <div class="row"><span class="k">每小时扣费</span><span class="v">0.479 元</span></div>
+      <div class="row"><span class="k">一直开能用</span><span class="v">约 26 天</span></div>
+      <div class="row"><span class="k">试用到期</span><span class="v amber">2027-02-16</span></div>
+      <div class="row"><span class="k">远程登录</span><span class="v">administrator</span></div>
+      <div class="actions">
+        <a class="btn" href="https://ecs.console.aliyun.com/server/i-bp1c34hnxape9c39rcu5/detail?regionId=cn-hangzhou" target="_blank">打开阿里云控制台</a>
+        <a class="btn ghost" href="http://47.118.19.203/" target="_blank">服务器空间页面</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Muse 虚拟机</h2>
+      <div class="tag">我的本机 · 助手运行的地方</div>
+      <div class="row"><span class="k">系统</span><span class="v">Linux（KVM）</span></div>
+      <div class="row"><span class="k">CPU</span><span class="v">AMD EPYC 9D25 · 共享 1.5 核</span></div>
+      <div class="row"><span class="k">内存</span><span class="v">6 GiB（共享）</span></div>
+      <div class="row"><span class="k">硬盘</span><span class="v">150G</span></div>
+      <div class="row"><span class="k">Tailscale</span><span class="v">muse · 100.103.163.2</span></div>
+      <div class="row"><span class="k">状态</span><span class="v green">● 运行中</span></div>
+      <div class="row"><span class="k">用途</span><span class="v">聊天、查资料、跑任务、建空间</span></div>
+      <div class="row"><span class="k">费用</span><span class="v">包含在 Muse 里</span></div>
+      <div class="actions">
+        <a class="btn ghost" href="http://47.118.19.203/" target="_blank">对比阿里云那台</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>📦 阿里云已装的软件</h2>
+      <div class="tag">在服务器上跑的东西</div>
+      <ul class="checklist">
+        <li><span>IIS（网站服务）</span><span class="ok">✅ 已装，页面已上线</span></li>
+        <li><span>Google Chrome</span><span class="todo">⏳ 安装中</span></li>
+        <li><span>影刀 ShadowBot</span><span class="todo">⏳ 安装中</span></li>
+        <li><span>ECS 安全防护（主机全面防护）</span><span class="ok">✅ 已领，免费</span></li>
+        <li><span>云备份 100G</span><span class="ok">✅ 已领，免费</span></li>
+        <li><span>ESA 免费版</span><span class="ok">✅ 已领，至 2026-12-17</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>💰 费用与省钱</h2>
+      <div class="tag">试用金怎么用最划算</div>
+      <div class="row"><span class="k">停机不扣费</span><span class="v">停机不扣计算费</span></div>
+      <div class="row"><span class="k">间歇用</span><span class="v">300 元能撑满 3 个月</span></div>
+      <div class="row"><span class="k">一直开</span><span class="v amber">约 26 天用完</span></div>
+      <div class="row"><span class="k">数据盘</span><span class="v">100G 需先充 100 元余额（已跳过）</span></div>
+      <div class="row"><span class="k">超了怎么办</span><span class="v red">超额按量计费，记得停机/释放</span></div>
+      <div class="actions">
+        <a class="btn warn" href="https://ecs.console.aliyun.com/server/i-bp1c34hnxape9c39rcu5/detail?regionId=cn-hangzhou" target="_blank">去控制台停机</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔐 安全待办</h2>
+    <div class="tag">现在就该做的两件事</div>
+    <ul class="checklist">
+      <li><span>把 administrator 密码改复杂（12 位以上，大小写+数字+符号）</span><span class="todo">待做</span></li>
+      <li><span>修掉安全检查里那 1 个待修漏洞（每天有 1 次免费修复）</span><span class="todo">待做</span></li>
+      <li><span>阿里云账号密码还没设（注册时没设）</span><span class="todo">待做</span></li>
+      <li><span>ESA 免费版还没绑定网站（至 2026-12-17）</span><span class="todo">待做</span></li>
+    </ul>
+  </div>
+
+  <div class="section-title">📱 手机怎么连阿里云服务器</div>
+  <div class="card">
+    <div class="row"><span class="k">App</span><span class="v">Windows App Mobile（微软官方）</span></div>
+    <div class="row"><span class="k">点“电脑”填</span><span class="v"><code>47.118.19.203</code></span></div>
+    <div class="row"><span class="k">用户名</span><span class="v"><code>administrator</code></span></div>
+    <div class="row"><span class="k">密码</span><span class="v">你设的那个（问我拿）</span></div>
+    <div class="row"><span class="k">断开会怎样</span><span class="v">服务器继续跑，只是不扣你手机的电</span></div>
+  </div>
+
+  <footer>服务器管控中心 · 部署在阿里云 ECS（47.118.19.203）上 · 数据以阿里云控制台为准</footer>
+</div>
+</body>
+</html>
